@@ -82,9 +82,6 @@ TARGET_USES_GRALLOC4 := true
 TARGET_USES_ION := true
 TARGET_SCREEN_DENSITY := 420
 
-# DT2W
-TARGET_TAP_TO_WAKE_NODE := "/sys/kernel/touchpanel/dclicknode"
-
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
