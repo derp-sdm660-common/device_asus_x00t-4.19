@@ -147,9 +147,6 @@ TARGET_BOARD_PLATFORM := sdm660
 OVERRIDE_QCOM_HARDWARE_VARIANT := sdm660
 TARGET_USES_UM_4_19 := true
 
-# Power
-TARGET_USES_INTERACTION_BOOST := true
-
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/properties/odm.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/properties/product.prop
