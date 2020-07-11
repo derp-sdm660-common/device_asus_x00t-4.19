@@ -2746,8 +2746,11 @@ case "$target" in
                 "317" | "324" | "325" | "326" | "345" | "346" )
 
             # cpuset settings
-            echo 0-3 > /dev/cpuset/background/cpus
+            echo 0-7 > /dev/cpuset/top-app/cpus
+            echo 0-3,6-7 > /dev/cpuset/foreground/cpus
+            echo 0-1 > /dev/cpuset/background/cpus
             echo 0-3 > /dev/cpuset/system-background/cpus
+            echo 0-3 > /dev/cpuset/restricted/cpus
 
             #if the kernel version >=4.14,use the schedutil governor
             if [ $KernelVersionA -ge 4 ] && [ $KernelVersionB -ge 14 ]; then
