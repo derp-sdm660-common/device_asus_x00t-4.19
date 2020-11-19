@@ -287,6 +287,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libjson
 
+# Remove unwanted packages
+PRODUCT_PACKAGES += \
+    RemovePackages
+
 # Ramdisk Scripts
 PRODUCT_PACKAGES += \
     init.btmac.sh \
