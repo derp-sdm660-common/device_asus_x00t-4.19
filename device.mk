@@ -90,7 +90,7 @@ PRODUCT_PACKAGES += \
     hwcomposer.sdm660 \
     memtrack.sdm660 \
     libdisplayconfig \
-    libqdMetaData.system \
+    libqdMetaData.vendor \
     libtinyxml \
     libvulkan
 
@@ -368,7 +368,9 @@ PRODUCT_PACKAGES += \
 # WFD
 PRODUCT_PACKAGES += \
     libmediaextractorservice \
-    libnl
+    libnl \
+    libstagefright_enc_common \
+    libwfdaac_vendor
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
