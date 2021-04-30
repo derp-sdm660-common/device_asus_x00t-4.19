@@ -370,16 +370,6 @@ function 8937_sched_dcvs_hmp()
 }
 
 function sdm660_sched_interactive_dcvs() {
-
-    echo 0 > /proc/sys/kernel/sched_select_prev_cpu_us
-    echo 400000 > /proc/sys/kernel/sched_freq_inc_notify
-    echo 400000 > /proc/sys/kernel/sched_freq_dec_notify
-    echo 5 > /proc/sys/kernel/sched_spill_nr_run
-    echo 1 > /proc/sys/kernel/sched_restrict_cluster_spill
-    echo 100000 > /proc/sys/kernel/sched_short_burst_ns
-    echo 1 > /proc/sys/kernel/sched_prefer_sync_wakee_to_waker
-    echo 20 > /proc/sys/kernel/sched_small_wakee_task_load
-
     # disable thermal bcl hotplug to switch governor
     echo 0 > /sys/module/msm_thermal/core_control/enabled
 
@@ -481,8 +471,8 @@ function sdm660_sched_schedutil_dcvs() {
     if [ $KernelVersionA -ge 4 ] && [ $KernelVersionB -ge 19 ]; then
         # configure governor settings for little cluster
         echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-        echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-        echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
+        echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
+        echo 20000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
         echo 1401600 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
         echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
         echo 633600 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
@@ -490,8 +480,8 @@ function sdm660_sched_schedutil_dcvs() {
 
         # configure governor settings for big cluster
         echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
-        echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
-        echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
+        echo 500 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
+        echo 20000 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
         echo 1401600 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_freq
         echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/pl
         echo 1113600 > /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
@@ -2751,31 +2741,9 @@ case "$target" in
             panel=${panel:2:4}
         fi
 
-        if [ $KernelVersionA -ge 4 ] && [ $KernelVersionB -le 14 ]; then
-            if [ $panel -gt 1080 ]; then
-                echo 2 > /proc/sys/kernel/sched_window_stats_policy
-                echo 5 > /proc/sys/kernel/sched_ravg_hist_size
-            else
-                echo 3 > /proc/sys/kernel/sched_window_stats_policy
-                echo 3 > /proc/sys/kernel/sched_ravg_hist_size
-            fi
-        fi
         #Apply settings for sdm660, sdm636,sda636
         case "$soc_id" in
                 "317" | "324" | "325" | "326" | "345" | "346" )
-
-            echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
-            echo 60 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
-            echo 30 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
-            echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
-            echo 1 > /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
-            echo 4 > /sys/devices/system/cpu/cpu4/core_ctl/task_thres
-
-            # Setting b.L scheduler parameters
-            echo 96 > /proc/sys/kernel/sched_upmigrate
-            echo 90 > /proc/sys/kernel/sched_downmigrate
-            echo 140 > /proc/sys/kernel/sched_group_upmigrate
-            echo 120 > /proc/sys/kernel/sched_group_downmigrate
 
             # cpuset settings
             echo 0-3 > /dev/cpuset/background/cpus
