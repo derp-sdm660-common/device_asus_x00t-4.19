@@ -1,3 +1,5 @@
+type debugfs_rpm, debugfs_type, fs_type;
+
 # ZenParts
 type sysfs_fps, sysfs_type, fs_type;
 type sysfs_gesture_node, sysfs_type, fs_type;

@@ -27,6 +27,9 @@
 # Persist
 /persist(/.*)?                                                                                  u:object_r:mnt_vendor_file:s0
 
+# Power
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.3-service\.xiaomi_sdm660-libperfmgr          u:object_r:hal_power_default_exec:s0
+
 # Powerstats mock
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power\.stats@1\.0-service\.mock               u:object_r:hal_power_stats_default_exec:s0
 
