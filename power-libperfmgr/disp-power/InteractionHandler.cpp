@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.power@1.3-service.xiaomi_sdm660-libperfmgr"
+#define LOG_TAG "android.hardware.power@1.3-service.asus_sdm660-libperfmgr"
 
 #include <fcntl.h>
 #include <poll.h>
