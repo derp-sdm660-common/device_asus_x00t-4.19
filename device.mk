@@ -73,8 +73,7 @@ $(call inherit-product, vendor/asus/X00T/X00T-vendor.mk)
 # Camera
 PRODUCT_PACKAGES += \
     camera.sdm660 \
-    libgui_vendor \
-    GCamGOPrebuilt
+    libgui_vendor
 
 # default is nosdcard, S/W button enabled in resource
 PRODUCT_CHARACTERISTICS := nosdcard
@@ -111,6 +110,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
     libqti_vndfwk_detect.vendor
+
+# Google Camera Go
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/permissions/com.google.android.apps.cameraslite.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.google.android.apps.cameraslite.xml
+
+PRODUCT_PACKAGES += \
+    GoogleCameraGo
 
 # GPS
 PRODUCT_PACKAGES += \
