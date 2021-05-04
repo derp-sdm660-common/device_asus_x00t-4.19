@@ -19,3 +19,6 @@ sys.nvram.wifimac                  u:object_r:nvram_btwifi_prop:s0
 
 # wifi
 wifi.active.interface              u:object_r:wifi_prop:s0
+
+# MWQEM
+persist.vendor.mwqem.                        u:object_r:vendor_mwqem_prop:s0
