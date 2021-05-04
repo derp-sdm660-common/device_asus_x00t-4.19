@@ -32,7 +32,8 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libvolumelistener \
-    tinymix
+    tinymix \
+    libldacBT_bco
 
 # Audio-Extensions
 PRODUCT_PACKAGES += \
