@@ -89,7 +89,8 @@ PRODUCT_PACKAGES += \
     hwcomposer.sdm660 \
     memtrack.sdm660 \
     libdisplayconfig \
-    libqdMetaData.system \
+    libqdMetaData \
+    libqdMetaData.vendor \
     libtinyxml \
     libvulkan
 
