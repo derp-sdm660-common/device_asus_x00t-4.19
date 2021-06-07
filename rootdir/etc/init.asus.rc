@@ -118,6 +118,9 @@ service vendor.sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-servi
     group system wakelock input uhid context_hub
     capabilities BLOCK_SUSPEND
     rlimit rtprio 10 10
+
+on property:vendor.post_boot.parsed=1
+    write /dev/stune/top-app/schedtune.boost 1
     
 # Misc changes
 # Disable CDSP in init.qcom.post_boot.sh
