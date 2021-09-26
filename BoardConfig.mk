@@ -117,7 +117,9 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/asus/sdm660
 TARGET_KERNEL_CONFIG := X00T_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CLANG_VERSION := r433403
 TARGET_KERNEL_VERSION := 4.19
+TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument" AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip LD=ld.lld
 
 ODM_MANIFEST_SKUS += X00T
 ODM_MANIFEST_X00T_FILES := $(DEVICE_PATH)/manifest_nfc.xml
