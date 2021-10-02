@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/dot_X00TD.mk
+    $(LOCAL_DIR)/derp_X00TD.mk
 
 COMMON_LUNCH_CHOICES := \
-    dot_X00TD-eng \
-    dot_X00TD-user \
-    dot_X00TD-userdebug
+    derp_X00TD-eng \
+    derp_X00TD-user \
+    derp_X00TD-userdebug
